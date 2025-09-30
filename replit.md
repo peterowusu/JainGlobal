@@ -30,6 +30,11 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Popups display full addresses and office details
 - No API key required (uses OpenStreetMap tiles)
 
+**Investment Strategies Section**
+- Video background implemented: `3736384793-preview_1759209683934.mp4`
+- Auto-playing, looping video with dark overlay for text readability
+- Enhances visual appeal of strategy cards and interactive quiz
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

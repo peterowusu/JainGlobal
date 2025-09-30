@@ -4,6 +4,7 @@ import { BarChart, RefreshCw, Building, Globe, Fuel, Bot, ArrowRight } from "luc
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSound } from "@/hooks/use-sound";
+import strategiesVideo from "@assets/3736384793-preview_1759209683934.mp4";
 
 const strategies = [
   {
@@ -76,8 +77,22 @@ export function StrategiesSection() {
   };
 
   return (
-    <section id="strategies" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="strategies" className="relative py-20 overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={strategiesVideo} type="video/mp4" />
+      </video>
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/70"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
