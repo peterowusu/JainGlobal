@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map as LeafletMap, Icon } from "leaflet";
 import { motion } from "framer-motion";
+import "leaflet/dist/leaflet.css";
 
 interface Office {
   id: string;
@@ -7,7 +10,7 @@ interface Office {
   region: string;
   address: string;
   focus: string;
-  coordinates: { x: number; y: number };
+  coordinates: { lat: number; lng: number };
 }
 
 const offices: Office[] = [
@@ -17,7 +20,7 @@ const offices: Office[] = [
     region: "Headquarters",
     address: "9 West 57th Street, 39th Floor, New York, NY 10019",
     focus: "Global Strategy & Operations",
-    coordinates: { x: 25, y: 50 },
+    coordinates: { lat: 40.7649, lng: -73.9756 },
   },
   {
     id: "london",
@@ -25,7 +28,7 @@ const offices: Office[] = [
     region: "European Hub",
     address: "Canary Wharf, London, E14 5AB",
     focus: "European Markets & Credit",
-    coordinates: { x: 50, y: 33 },
+    coordinates: { lat: 51.5055, lng: -0.0196 },
   },
   {
     id: "hongkong",
@@ -33,7 +36,7 @@ const offices: Office[] = [
     region: "Asia Pacific",
     address: "Central District, Hong Kong",
     focus: "Asian Equities & FX",
-    coordinates: { x: 75, y: 50 },
+    coordinates: { lat: 22.2783, lng: 114.1747 },
   },
   {
     id: "singapore",
@@ -41,7 +44,7 @@ const offices: Office[] = [
     region: "Southeast Asia",
     address: "Marina Bay Financial Centre, Singapore 018989",
     focus: "Quantitative Strategies",
-    coordinates: { x: 70, y: 67 },
+    coordinates: { lat: 1.2789, lng: 103.8508 },
   },
   {
     id: "houston",
@@ -49,54 +52,68 @@ const offices: Office[] = [
     region: "Energy Hub",
     address: "Energy Corridor, Houston, TX 77056",
     focus: "Commodities & Energy",
-    coordinates: { x: 30, y: 67 },
+    coordinates: { lat: 29.7604, lng: -95.3698 },
   },
 ];
 
+// Custom marker icon
+const customIcon = new Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
 export function InteractiveMap() {
   const [selectedOffice, setSelectedOffice] = useState<Office | null>(null);
+  const mapRef = useRef<LeafletMap>(null);
+
+  const handleOfficeClick = (office: Office) => {
+    setSelectedOffice(office);
+    if (mapRef.current) {
+      mapRef.current.flyTo([office.coordinates.lat, office.coordinates.lng], 13, {
+        duration: 1.5,
+      });
+    }
+  };
 
   return (
     <div className="relative">
-      <div className="bg-muted rounded-xl p-8 glass-effect mb-8">
-        <div className="relative h-64 md:h-80 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-lg overflow-hidden">
-          {/* Simplified world map background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-muted to-card opacity-50"></div>
-          
-          {/* Grid overlay */}
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(245, 158, 11, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(245, 158, 11, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '20px 20px'
-            }}
-          ></div>
-
-          {/* Office pins */}
+      <div className="bg-muted rounded-xl p-4 glass-effect mb-8">
+        <MapContainer
+          center={[30, 20]}
+          zoom={2}
+          style={{ height: "500px", width: "100%", borderRadius: "0.75rem" }}
+          ref={mapRef}
+          className="z-0"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
           {offices.map((office) => (
-            <motion.div
+            <Marker
               key={office.id}
-              className="absolute map-pin"
-              style={{
-                left: `${office.coordinates.x}%`,
-                top: `${office.coordinates.y}%`,
-                transform: 'translate(-50%, -50%)',
+              position={[office.coordinates.lat, office.coordinates.lng]}
+              icon={customIcon}
+              eventHandlers={{
+                click: () => handleOfficeClick(office),
               }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setSelectedOffice(office)}
-              data-testid={`map-pin-${office.id}`}
             >
-              <div className="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-lg pulse cursor-pointer"></div>
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-background/90 text-foreground text-xs font-semibold px-2 py-1 rounded shadow-lg whitespace-nowrap border border-primary/20">
-                {office.name}
-              </div>
-            </motion.div>
+              <Popup>
+                <div className="text-sm">
+                  <h3 className="font-bold text-base mb-2">{office.name}</h3>
+                  <p className="text-gray-600 text-xs mb-1">{office.region}</p>
+                  <p className="text-gray-700 mb-2">{office.address}</p>
+                  <p className="font-semibold text-primary text-xs">{office.focus}</p>
+                </div>
+              </Popup>
+            </Marker>
           ))}
-        </div>
+        </MapContainer>
       </div>
 
       {/* Office details */}
@@ -107,7 +124,7 @@ export function InteractiveMap() {
             className={`office-card bg-card rounded-xl p-6 glass-effect hover-lift cursor-pointer transition-all duration-300 ${
               selectedOffice?.id === office.id ? 'ring-2 ring-primary' : ''
             }`}
-            onClick={() => setSelectedOffice(office)}
+            onClick={() => handleOfficeClick(office)}
             whileHover={{ y: -4 }}
             data-testid={`office-card-${office.id}`}
           >

@@ -18,6 +18,18 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Auto-playing, looping video with dark overlay for text readability
 - Maintains all particle animations and gamified effects
 
+**Contact/Investor Section**
+- Video background implemented: `3817291797-preview_1759197631629.mp4`
+- Auto-playing, looping video with dark overlay for text readability
+- Creates engaging visual experience for investor inquiries
+
+**International Presence Map**
+- Upgraded to live interactive OpenStreetMap using React Leaflet
+- Clickable markers for all 5 global offices (New York, London, Hong Kong, Singapore, Houston)
+- Clicking markers or office cards zooms map to exact location with smooth animation
+- Popups display full addresses and office details
+- No API key required (uses OpenStreetMap tiles)
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
