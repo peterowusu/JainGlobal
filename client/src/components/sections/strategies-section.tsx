@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSound } from "@/hooks/use-sound";
 import strategiesVideo from "@assets/3736384793-preview_1759209683934.mp4";
+import Confetti from "react-confetti";
 
 const strategies = [
   {
@@ -64,6 +65,7 @@ const quizQuestion = {
 export function StrategiesSection() {
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const { playClickSound, playHoverSound, playSuccessSound } = useSound();
 
   const handleQuizAnswer = (index: number) => {
@@ -73,11 +75,25 @@ export function StrategiesSection() {
     
     if (quizQuestion.options[index].correct) {
       playSuccessSound();
+      setShowConfetti(true);
+      // Stop confetti after 5 seconds
+      setTimeout(() => setShowConfetti(false), 5000);
     }
   };
 
   return (
     <section id="strategies" className="relative py-20 overflow-hidden">
+      {/* Confetti Effect */}
+      {showConfetti && (
+        <Confetti
+          width={typeof window !== 'undefined' ? window.innerWidth : 300}
+          height={typeof window !== 'undefined' ? window.innerHeight : 200}
+          recycle={false}
+          numberOfPieces={500}
+          gravity={0.3}
+        />
+      )}
+      
       {/* Video Background */}
       <video
         autoPlay

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { PerformanceChart } from "@/components/ui/performance-chart";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp, Shield, TrendingDown, Globe } from "lucide-react";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 
 const metrics = [
   {
@@ -83,7 +84,7 @@ export function PerformanceSection() {
                             {metric.title}
                           </h4>
                           <p className={`text-3xl font-bold text-${metric.color} mt-2`}>
-                            {metric.value}
+                            <AnimatedCounter value={metric.value} />
                           </p>
                         </div>
                         <div className={`bg-${metric.color}/20 rounded-full p-4`}>

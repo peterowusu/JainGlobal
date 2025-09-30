@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSound } from "@/hooks/use-sound";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -15,6 +16,7 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { playHoverSound, playClickSound } = useSound();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +66,11 @@ export function Navigation() {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => {
+                    playClickSound();
+                    scrollToSection(item.href);
+                  }}
+                  onMouseEnter={playHoverSound}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
                     activeSection === item.href.replace("#", "")
                       ? "text-primary"

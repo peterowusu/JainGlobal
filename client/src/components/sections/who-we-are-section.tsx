@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { CustomCarousel } from "@/components/ui/carousel-custom";
 import { Badge } from "@/components/ui/badge";
 import { Users, Shield, Globe, ServerCog, ChartLine } from "lucide-react";
+import { PortfolioAllocationGame } from "@/components/ui/portfolio-allocation-game";
 
 export function WhoWeAreSection() {
   const slides = [
@@ -162,6 +163,11 @@ export function WhoWeAreSection() {
           </motion.div>
         </div>
       </div>
+    </div>,
+
+    // Slide 4: Portfolio Allocation Game
+    <div key="game" className="bg-muted rounded-xl p-8 md:p-12 glass-effect hover-lift">
+      <PortfolioAllocationGame />
     </div>,
   ];
 
