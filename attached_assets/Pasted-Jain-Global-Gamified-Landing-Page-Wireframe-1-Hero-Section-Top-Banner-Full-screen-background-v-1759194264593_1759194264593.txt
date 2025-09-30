@@ -1,0 +1,114 @@
+Jain Global – Gamified Landing Page Wireframe
+1. Hero Section (Top Banner)
+
+Full-screen background video or animated banner showing global finance visuals
+
+Overlay text: “Jain Global – Multi-Strategy Global Hedge Fund”
+
+CTA buttons:
+
+“Learn About Us” → scrolls to Who We Are
+
+“Investor Access” → scrolls to Contact Form
+
+Gamified Element: subtle click animation on CTA buttons with sound effect when hovered or clicked
+
+Optional: animated downward arrow with hover glow
+
+2. Who We Are (Slide Panel / Carousel)
+
+Slides / Cards:
+
+Slide 1: Bobby Jain – Founder & CEO + headshot + bio
+
+Slide 2: Leadership Pods – Portfolio Managers, Strategy Heads (high-level)
+
+Slide 3: Mission & Differentiators
+
+Gamified Element: mini-game overlay, e.g., “collect icons” by swiping through slides or hover-triggered effects
+
+3. Investment Strategies (Carousel Cards)
+
+6 strategy cards: Fundamental Equities, Equity Arbitrage, Credit, Rates & Macro, Commodities, Quantitative
+
+Each card: icon + one-line description
+
+Gamified Element:
+
+Card hover triggers animation or particle effect
+
+Optional “Strategy Quiz” mini-game embedded in carousel: users match strategy to asset class for points
+
+4. Benchmarks & Performance
+
+Animated charts: bar, line, or area chart
+
+Metrics: AUM, sample returns vs HFRI/S&P 500, products traded
+
+Gamified Element:
+
+Interactive tooltip pop-ups with micro animations
+
+Small click reward effect for exploring charts
+
+5. International Presence (Interactive Map)
+
+World map with pins: NYC, London, Hong Kong, Singapore, Houston
+
+Hover/click: office info, local strategy focus, head names
+
+Gamified Element:
+
+“Pin Challenge” mini-game: hover over all pins to reveal hidden icons or facts
+
+Pin clicks trigger sound effect and animated map highlight
+
+6. Target Audience / Investor Info
+
+Slides or tabs: Accredited Investors, Institutional Investors, Financial Advisors
+
+Gamified Element:
+
+Hover effects on tabs or a small quiz that educates users on investor types
+
+Reward points or visual animation when user interacts
+
+7. Contact / Investor Access Form
+
+Left Panel:
+
+Jain Global LLC, 9 West 57th Street, 39th Floor, NYC
+
+Email: contact@jainglobal.com
+
+Right Panel:
+
+Form fields: Name, Email, Investor Type, Message, Optional Upload
+
+Gamified Element:
+
+Animated form field focus effect
+
+“Submit Request” triggers confetti animation or sound effect upon submission
+
+8. Navigation & UX
+
+Sticky top navigation: Home | Who We Are | Strategies | Performance | Global Presence | Contact
+
+Smooth scroll & fade-in animations
+
+Mobile responsive: stacked sections, swipeable carousels, touch-friendly mini-games
+
+Audio/visual cues throughout for interactive engagement
+
+9. Asset Library / Reusable Components
+
+Pre-built React components for:
+
+Carousel slides, interactive cards, maps
+
+Mini-game logic (clicks, hovers, small challenges)
+
+Audio/visual effects triggers
+
+Modular design for easy reuse across future pages
