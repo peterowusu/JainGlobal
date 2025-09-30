@@ -32,11 +32,10 @@ export function ParticleBackground() {
     window.addEventListener("resize", resizeCanvas);
 
     const colors = [
-      "245, 158, 11",  // amber
-      "59, 130, 246",  // blue
-      "168, 85, 247",  // purple
-      "236, 72, 153",  // pink
-      "34, 197, 94",   // green
+      "61, 71, 77",    // #3d474d
+      "77, 116, 139",  // #4d748b
+      "55, 52, 49",    // #373431
+      "191, 200, 255", // #bfc8ff
     ];
 
     const createParticle = (x: number, y: number) => {

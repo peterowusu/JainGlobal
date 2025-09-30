@@ -36,12 +36,17 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Enhances visual appeal of strategy cards and interactive quiz
 - Confetti animation on correct quiz answers (500 pieces, 5-second display)
 
+**Target Audience Section**
+- Institutional Investors tab now displays video: `3765088793-preview_1759271170526.mp4`
+- Video auto-plays and loops for engaging presentation
+- Other audience tabs (Accredited Investors, Financial Advisors) maintain static images
+
 **Enhanced Gamification Features (September 30, 2025)**
 - **Animated Number Counters**: Performance metrics ($12.9B, 1.87, -3.1%, 2,500+) count up smoothly when scrolled into view with easing animation and proper comma formatting
 - **Confetti Effects**: Celebration animations trigger on quiz success and balanced portfolio achievements
 - **Portfolio Allocation Mini-Game**: Interactive game in Who We Are carousel with 4 strategy sliders, real-time validation, risk analysis, and visual feedback
 - **Achievement Badges**: Gold "Portfolio Master!" badge appears with trophy icon when users create a well-balanced portfolio (25% each strategy)
-- **Multi-Colored Particles**: Enhanced particle background with 5 colors (amber, blue, purple, pink, green), variable sizes (1-3px), and glow effects
+- **Custom Particle Colors**: Particle background uses brand colors (#3d474d, #4d748b, #373431, #bfc8ff), variable sizes (1-3px), and glow effects
 - **Interactive Sound Effects**: Hover and click sounds on navigation items for enhanced engagement
 
 ## User Preferences
