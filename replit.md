@@ -34,6 +34,15 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Video background implemented: `3736384793-preview_1759209683934.mp4`
 - Auto-playing, looping video with dark overlay for text readability
 - Enhances visual appeal of strategy cards and interactive quiz
+- Confetti animation on correct quiz answers (500 pieces, 5-second display)
+
+**Enhanced Gamification Features (September 30, 2025)**
+- **Animated Number Counters**: Performance metrics ($12.9B, 1.87, -3.1%, 2,500+) count up smoothly when scrolled into view with easing animation and proper comma formatting
+- **Confetti Effects**: Celebration animations trigger on quiz success and balanced portfolio achievements
+- **Portfolio Allocation Mini-Game**: Interactive game in Who We Are carousel with 4 strategy sliders, real-time validation, risk analysis, and visual feedback
+- **Achievement Badges**: Gold "Portfolio Master!" badge appears with trophy icon when users create a well-balanced portfolio (25% each strategy)
+- **Multi-Colored Particles**: Enhanced particle background with 5 colors (amber, blue, purple, pink, green), variable sizes (1-3px), and glow effects
+- **Interactive Sound Effects**: Hover and click sounds on navigation items for enhanced engagement
 
 ## User Preferences
 
@@ -109,8 +118,10 @@ Preferred communication style: Simple, everyday language.
 **UI & Animation Libraries**
 - Radix UI: Accessible component primitives (dialogs, dropdowns, povers, etc.)
 - Framer Motion: Animation and gesture library for interactive elements
+- React Confetti: Celebration animations for gamification features
 - Embla Carousel: Touch-friendly carousel component
 - Lucide React: Icon library
+- React Leaflet: Interactive map component for global office locations
 
 **Data & Validation**
 - Zod: Runtime type validation for forms and API
