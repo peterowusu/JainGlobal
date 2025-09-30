@@ -90,10 +90,9 @@ export function InteractiveMap() {
               onClick={() => setSelectedOffice(office)}
               data-testid={`map-pin-${office.id}`}
             >
-              <div className="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-lg pulse cursor-pointer">
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-background text-foreground text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                  {office.name}
-                </div>
+              <div className="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-lg pulse cursor-pointer"></div>
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-background/90 text-foreground text-xs font-semibold px-2 py-1 rounded shadow-lg whitespace-nowrap border border-primary/20">
+                {office.name}
               </div>
             </motion.div>
           ))}
