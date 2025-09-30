@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
+import institutionalInvestorVideo from "@assets/3765088793-preview_1759271170526.mp4";
 
 const audienceData = {
   accredited: {
@@ -21,6 +22,7 @@ const audienceData = {
     title: "Institutional Investors",
     description: "Pension funds, endowments, and family offices requiring large-scale allocation solutions with rigorous due diligence standards.",
     image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    video: institutionalInvestorVideo,
     features: [
       "Minimum investment: $25M",
       "Customized terms available",
@@ -129,14 +131,28 @@ export function TargetAudienceSection() {
                 </ul>
               </div>
               
-              <motion.img
-                src={audienceData[activeTab].image}
-                alt={`${audienceData[activeTab].title} consultation`}
-                className="rounded-xl shadow-lg w-full h-auto"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              />
+              {activeTab === "institutional" && audienceData[activeTab].video ? (
+                <motion.video
+                  src={audienceData[activeTab].video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="rounded-xl shadow-lg w-full h-auto"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                />
+              ) : (
+                <motion.img
+                  src={audienceData[activeTab].image}
+                  alt={`${audienceData[activeTab].title} consultation`}
+                  className="rounded-xl shadow-lg w-full h-auto"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                />
+              )}
             </motion.div>
           </div>
         </motion.div>
