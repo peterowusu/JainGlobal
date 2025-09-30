@@ -6,6 +6,18 @@ Jain Global is a gamified landing page for a multi-strategy global hedge fund. T
 
 The project uses a full-stack TypeScript architecture with React on the frontend and Express on the backend, featuring a PostgreSQL database for storing contact requests.
 
+## Recent Changes
+
+**Performance Data (Updated: September 30, 2025)**
+- Assets Under Management: $12.9B (current) - Source: [Fintel](https://fintel.io/i/jain-global-llc-9969)
+- Startup AUM: $5.3 billion
+- AUM growth represents ~143% increase from initial assets
+
+**Hero Section**
+- Video background implemented: `3765497499-preview_1759195304479.mp4`
+- Auto-playing, looping video with dark overlay for text readability
+- Maintains all particle animations and gamified effects
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

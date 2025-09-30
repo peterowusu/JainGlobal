@@ -6,7 +6,7 @@ import { TrendingUp, Shield, TrendingDown, Globe } from "lucide-react";
 const metrics = [
   {
     title: "Assets Under Management",
-    value: "$4.2B",
+    value: "$12.9B",
     icon: TrendingUp,
     color: "primary",
   },
