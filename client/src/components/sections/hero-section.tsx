@@ -3,6 +3,7 @@ import { ChevronDown, Users, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { useSound } from "@/hooks/use-sound";
+import heroVideo from "@assets/3765497499-preview_1759195304479.mp4";
 
 export function HeroSection() {
   const { playClickSound, playHoverSound } = useSound();
@@ -16,7 +17,21 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen hero-video flex items-center justify-center">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/60"></div>
+      
       <ParticleBackground />
       
       {/* Static particles */}
