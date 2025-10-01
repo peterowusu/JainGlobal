@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BarChart, RefreshCw, Building, Globe, Fuel, Bot, ArrowRight } from "lucide-react";
+import { BarChart, RefreshCw, Building, Globe, Fuel, Bot, ArrowRight, Gamepad2, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useSound } from "@/hooks/use-sound";
 import strategiesVideo from "@assets/3736384793-preview_1759209683934.mp4";
 import Confetti from "react-confetti";
+import { StrategyGame } from "@/components/ui/strategy-games";
 
 const strategies = [
   {
@@ -66,6 +68,8 @@ export function StrategiesSection() {
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [activeGame, setActiveGame] = useState<string | null>(null);
+  const [totalPoints, setTotalPoints] = useState(0);
   const { playClickSound, playHoverSound, playSuccessSound } = useSound();
 
   const handleQuizAnswer = (index: number) => {
@@ -76,9 +80,18 @@ export function StrategiesSection() {
     if (quizQuestion.options[index].correct) {
       playSuccessSound();
       setShowConfetti(true);
-      // Stop confetti after 5 seconds
+      setTotalPoints(prev => prev + 50);
       setTimeout(() => setShowConfetti(false), 5000);
     }
+  };
+
+  const handleOpenGame = (strategyId: string) => {
+    playClickSound();
+    setActiveGame(strategyId);
+  };
+
+  const handleGameComplete = (points: number) => {
+    setTotalPoints(prev => prev + points);
   };
 
   return (
@@ -116,11 +129,19 @@ export function StrategiesSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            Investment Strategies
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
+              Investment Strategies
+            </h2>
+            {totalPoints > 0 && (
+              <Badge variant="outline" className="text-lg px-4 py-2 bg-primary/20 border-primary">
+                <Trophy className="h-4 w-4 mr-2 text-primary" />
+                {totalPoints} pts
+              </Badge>
+            )}
+          </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Diversified approach across six core strategies designed to generate alpha in all market conditions
+            Learn through interactive games and challenges across global markets
           </p>
         </motion.div>
 
@@ -139,7 +160,7 @@ export function StrategiesSection() {
                 onMouseEnter={playHoverSound}
                 data-testid={`strategy-card-${strategy.id}`}
               >
-                <Card className="strategy-card bg-card glass-effect cursor-pointer group h-full">
+                <Card className="strategy-card bg-card glass-effect group h-full">
                   <CardContent className="p-6 text-center h-full flex flex-col">
                     <div className={`bg-${strategy.color}/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:bg-${strategy.color}/30 transition-all duration-300`}>
                       <Icon className={`text-${strategy.color} text-2xl group-hover:scale-110 transition-transform duration-300`} />
@@ -149,15 +170,20 @@ export function StrategiesSection() {
                       {strategy.title}
                     </h3>
                     
-                    <p className="text-muted-foreground flex-grow">
+                    <p className="text-muted-foreground flex-grow mb-4">
                       {strategy.description}
                     </p>
                     
-                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className={`text-sm text-${strategy.color} font-semibold flex items-center justify-center gap-1`}>
-                        Learn More <ArrowRight className="h-4 w-4" />
-                      </span>
-                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className={`w-full group-hover:bg-${strategy.color}/10 group-hover:border-${strategy.color} transition-all`}
+                      onClick={() => handleOpenGame(strategy.id)}
+                      data-testid={`play-game-${strategy.id}`}
+                    >
+                      <Gamepad2 className="h-4 w-4 mr-2" />
+                      Play Game
+                    </Button>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -237,6 +263,16 @@ export function StrategiesSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Strategy Game Dialog */}
+      {activeGame && (
+        <StrategyGame
+          strategyId={activeGame}
+          open={!!activeGame}
+          onClose={() => setActiveGame(null)}
+          onComplete={handleGameComplete}
+        />
+      )}
     </section>
   );
 }
