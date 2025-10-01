@@ -107,23 +107,35 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
         
         <div className="grid grid-cols-2 gap-4">
           {stocks.map((stock) => (
-            <Card
+            <motion.div
               key={stock.name}
-              className={`p-4 cursor-pointer transition-all ${
-                selectedStocks.includes(stock.name) ? "border-primary bg-primary/10" : ""
-              }`}
-              onClick={() => handleStockSelect(stock.name)}
-              data-testid={`stock-${stock.name.toLowerCase()}`}
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <h4 className="font-bold mb-2">{stock.name}</h4>
-              <p className="text-sm text-muted-foreground">P/E Ratio: {stock.pe}</p>
-              <p className="text-sm text-muted-foreground">Growth: {stock.growth}%</p>
-              <p className="text-sm text-muted-foreground">Price: ${stock.price}</p>
-            </Card>
+              <Card
+                className={`p-4 cursor-pointer transition-all ${
+                  selectedStocks.includes(stock.name) 
+                    ? "border-2 border-primary bg-primary/20 shadow-lg shadow-primary/30" 
+                    : "border-2 border-transparent hover:border-primary/50"
+                }`}
+                onClick={() => handleStockSelect(stock.name)}
+                data-testid={`stock-${stock.name.toLowerCase()}`}
+              >
+                <h4 className="font-bold mb-2">{stock.name}</h4>
+                <p className="text-sm text-muted-foreground">P/E Ratio: {stock.pe}</p>
+                <p className="text-sm text-muted-foreground">Growth: {stock.growth}%</p>
+                <p className="text-sm text-muted-foreground">Price: ${stock.price}</p>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <Button onClick={handleSubmit} disabled={selectedStocks.length !== 2} data-testid="submit-equities">
+        <Button 
+          onClick={handleSubmit} 
+          disabled={selectedStocks.length !== 2} 
+          data-testid="submit-equities"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Analyze Portfolio
         </Button>
       </div>
@@ -169,7 +181,11 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
           </div>
         </div>
 
-        <Button onClick={handleSubmit} data-testid="submit-arbitrage">
+        <Button 
+          onClick={handleSubmit} 
+          data-testid="submit-arbitrage"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Execute Trade
         </Button>
       </div>
@@ -205,23 +221,35 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
         
         <div className="grid grid-cols-2 gap-4">
           {bonds.map((bond) => (
-            <Card
+            <motion.div
               key={bond.name}
-              className={`p-4 cursor-pointer transition-all ${
-                selectedBonds.includes(bond.name) ? "border-primary bg-primary/10" : ""
-              }`}
-              onClick={() => handleBondSelect(bond.name)}
-              data-testid={`bond-${bond.name.toLowerCase().replace(' ', '-')}`}
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <h4 className="font-bold mb-2">{bond.name}</h4>
-              <p className="text-sm text-muted-foreground">Yield: {bond.yield}%</p>
-              <p className="text-sm text-muted-foreground">Rating: {bond.rating}</p>
-              <p className="text-sm text-muted-foreground">Risk: {bond.risk}</p>
-            </Card>
+              <Card
+                className={`p-4 cursor-pointer transition-all ${
+                  selectedBonds.includes(bond.name) 
+                    ? "border-2 border-primary bg-primary/20 shadow-lg shadow-primary/30" 
+                    : "border-2 border-transparent hover:border-primary/50"
+                }`}
+                onClick={() => handleBondSelect(bond.name)}
+                data-testid={`bond-${bond.name.toLowerCase().replace(' ', '-')}`}
+              >
+                <h4 className="font-bold mb-2">{bond.name}</h4>
+                <p className="text-sm text-muted-foreground">Yield: {bond.yield}%</p>
+                <p className="text-sm text-muted-foreground">Rating: {bond.rating}</p>
+                <p className="text-sm text-muted-foreground">Risk: {bond.risk}</p>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <Button onClick={handleSubmit} disabled={selectedBonds.length !== 2} data-testid="submit-credit">
+        <Button 
+          onClick={handleSubmit} 
+          disabled={selectedBonds.length !== 2} 
+          data-testid="submit-credit"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Evaluate Portfolio
         </Button>
       </div>
@@ -270,7 +298,12 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
           </Button>
         </div>
 
-        <Button onClick={handleSubmit} disabled={!prediction} data-testid="submit-macro">
+        <Button 
+          onClick={handleSubmit} 
+          disabled={!prediction} 
+          data-testid="submit-macro"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Submit Prediction
         </Button>
       </div>
@@ -305,38 +338,56 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
         
         <div className="space-y-4">
           {commodities.map((commodity) => (
-            <Card key={commodity.name} className="p-4" data-testid={`commodity-${commodity.name.toLowerCase()}`}>
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold">{commodity.name}</h4>
-                  <p className="text-sm text-muted-foreground">Current: ${commodity.price}</p>
+            <motion.div
+              key={commodity.name}
+              whileHover={{ scale: 1.02, x: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card className="p-4 border-2 border-transparent hover:border-primary/30 transition-all" data-testid={`commodity-${commodity.name.toLowerCase()}`}>
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-bold">{commodity.name}</h4>
+                    <p className="text-sm text-muted-foreground">Current: ${commodity.price}</p>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <DollarSign className="text-primary" />
+                  </motion.div>
                 </div>
-                <DollarSign className="text-primary" />
-              </div>
-              <p className="text-sm text-muted-foreground mb-3">Event: {commodity.event}</p>
-              <div className="flex gap-2">
-                <Button
-                  size="sm"
-                  variant={trades[commodity.name] === "buy" ? "default" : "outline"}
-                  onClick={() => handleTrade(commodity.name, "buy")}
-                  data-testid={`buy-${commodity.name.toLowerCase()}`}
-                >
-                  Buy
-                </Button>
-                <Button
-                  size="sm"
-                  variant={trades[commodity.name] === "sell" ? "default" : "outline"}
-                  onClick={() => handleTrade(commodity.name, "sell")}
-                  data-testid={`sell-${commodity.name.toLowerCase()}`}
-                >
-                  Sell
-                </Button>
-              </div>
-            </Card>
+                <p className="text-sm text-muted-foreground mb-3">Event: {commodity.event}</p>
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant={trades[commodity.name] === "buy" ? "default" : "outline"}
+                    onClick={() => handleTrade(commodity.name, "buy")}
+                    data-testid={`buy-${commodity.name.toLowerCase()}`}
+                    className={trades[commodity.name] === "buy" ? "shadow-lg shadow-primary/30" : ""}
+                  >
+                    Buy
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant={trades[commodity.name] === "sell" ? "default" : "outline"}
+                    onClick={() => handleTrade(commodity.name, "sell")}
+                    data-testid={`sell-${commodity.name.toLowerCase()}`}
+                    className={trades[commodity.name] === "sell" ? "shadow-lg shadow-primary/30" : ""}
+                  >
+                    Sell
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
-        <Button onClick={handleSubmit} disabled={Object.keys(trades).length !== 3} data-testid="submit-commodities">
+        <Button 
+          onClick={handleSubmit} 
+          disabled={Object.keys(trades).length !== 3} 
+          data-testid="submit-commodities"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Execute All Trades
         </Button>
       </div>
@@ -404,7 +455,11 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
           </Card>
         </div>
 
-        <Button onClick={handleSubmit} data-testid="submit-quant">
+        <Button 
+          onClick={handleSubmit} 
+          data-testid="submit-quant"
+          className="w-full text-lg py-6 shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all"
+        >
           Run Backtest
         </Button>
       </div>
@@ -446,14 +501,15 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   return (
     <Dialog open={open} onOpenChange={(open) => !open && handleClose()}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-card via-card to-card/80 border-2 border-primary/30 shadow-2xl shadow-primary/20">
         {showConfetti && (
           <Confetti
             width={typeof window !== 'undefined' ? window.innerWidth : 300}
             height={typeof window !== 'undefined' ? window.innerHeight : 200}
             recycle={false}
-            numberOfPieces={200}
-            gravity={0.2}
+            numberOfPieces={300}
+            gravity={0.3}
+            colors={['#F59E0B', '#3B82F6', '#8B5CF6', '#EC4899', '#10B981']}
           />
         )}
         
@@ -464,14 +520,32 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
         />
 
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Trophy className="text-primary" />
-            {gameTitle}
+          <DialogTitle className="flex items-center gap-3 text-2xl">
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", duration: 0.6 }}
+            >
+              <Trophy className="text-primary h-8 w-8" />
+            </motion.div>
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              {gameTitle}
+            </motion.span>
           </DialogTitle>
         </DialogHeader>
 
         {!result ? (
-          renderGameContent()
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            {renderGameContent()}
+          </motion.div>
         ) : (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
