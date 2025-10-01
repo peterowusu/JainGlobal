@@ -30,11 +30,21 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Popups display full addresses and office details
 - No API key required (uses OpenStreetMap tiles)
 
-**Investment Strategies Section**
+**Investment Strategies Section (Updated: October 1, 2025)**
 - Video background implemented: `3736384793-preview_1759209683934.mp4`
 - Auto-playing, looping video with dark overlay for text readability
 - Enhances visual appeal of strategy cards and interactive quiz
 - Confetti animation on correct quiz answers (500 pieces, 5-second display)
+- **Interactive Mini-Games**: Each strategy card has a "Play Game" button that opens educational simulations:
+  - **Fundamental Equities**: Stock picking challenge - select undervalued stocks based on P/E ratios and growth
+  - **Equity Arbitrage**: Spread trading game - identify optimal price spreads for arbitrage opportunities
+  - **Credit**: Bond evaluation challenge - choose bonds with best risk-adjusted returns
+  - **Rates & Macro**: Interest rate prediction - predict bond price movements based on Fed policy
+  - **Commodities**: Trading simulator - buy/sell commodities based on market events
+  - **Quantitative**: Algorithm optimizer - tune risk and momentum parameters for optimal returns
+- **Points System**: Games award 0-100 points based on performance, displayed in header badge with trophy icon
+- Quiz awards 50 points for correct answer
+- Total points accumulate across all games and quiz
 
 **Target Audience Section**
 - Institutional Investors tab now displays video: `3765088793-preview_1759271170526.mp4`
