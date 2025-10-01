@@ -39,13 +39,27 @@ const commodities = [
 ];
 
 export function StrategyGame({ strategyId, open, onClose, onComplete }: StrategyGameProps) {
-  const [gameState, setGameState] = useState<any>({});
   const [result, setResult] = useState<{ success: boolean; message: string; points: number } | null>(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showBadge, setShowBadge] = useState(false);
+  
+  // All game states at top level to avoid conditional hooks
+  const [selectedStocks, setSelectedStocks] = useState<string[]>([]);
+  const [spread, setSpread] = useState(0);
+  const [selectedBonds, setSelectedBonds] = useState<string[]>([]);
+  const [prediction, setPrediction] = useState<"up" | "down" | null>(null);
+  const [trades, setTrades] = useState<{ [key: string]: "buy" | "sell" | null }>({});
+  const [riskTolerance, setRiskTolerance] = useState(50);
+  const [momentum, setMomentum] = useState(50);
 
   const resetGame = () => {
-    setGameState({});
+    setSelectedStocks([]);
+    setSpread(0);
+    setSelectedBonds([]);
+    setPrediction(null);
+    setTrades({});
+    setRiskTolerance(50);
+    setMomentum(50);
     setResult(null);
     setShowConfetti(false);
     setShowBadge(false);
@@ -53,18 +67,18 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   const handleComplete = (success: boolean, message: string, points: number) => {
     setResult({ success, message, points });
+    onComplete(points); // Always award points, not just on success
+    
     if (success) {
       setShowConfetti(true);
       setShowBadge(true);
       setTimeout(() => setShowConfetti(false), 3000);
       setTimeout(() => setShowBadge(false), 5000);
-      onComplete(points);
     }
   };
 
   // Fundamental Equities: Stock Picking Game
   const renderEquitiesGame = () => {
-    const [selectedStocks, setSelectedStocks] = useState<string[]>([]);
 
     const handleStockSelect = (stockName: string) => {
       if (selectedStocks.includes(stockName)) {
@@ -118,7 +132,6 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Equity Arbitrage: Spread Trading Game
   const renderArbitrageGame = () => {
-    const [spread, setSpread] = useState(0);
     const targetSpread = 2.5;
 
     const handleSubmit = () => {
@@ -165,8 +178,6 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Credit: Bond Evaluation Game
   const renderCreditGame = () => {
-    const [selectedBonds, setSelectedBonds] = useState<string[]>([]);
-
     const handleBondSelect = (bondName: string) => {
       if (selectedBonds.includes(bondName)) {
         setSelectedBonds(selectedBonds.filter(b => b !== bondName));
@@ -219,7 +230,6 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Rates & Macro: Interest Rate Prediction Game
   const renderMacroGame = () => {
-    const [prediction, setPrediction] = useState<"up" | "down" | null>(null);
     const scenario = "The Federal Reserve announces a 0.5% interest rate increase";
     const correctAnswer = "down";
 
@@ -269,8 +279,6 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Commodities: Trading Simulator
   const renderCommoditiesGame = () => {
-    const [trades, setTrades] = useState<{ [key: string]: "buy" | "sell" | null }>({});
-
     const handleTrade = (commodity: string, action: "buy" | "sell") => {
       setTrades({ ...trades, [commodity]: action });
     };
@@ -283,11 +291,12 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
       });
       
       const success = correct === 3;
+      const points = Math.floor((correct / 3) * 100); // Scale to 100 points
       const message = success
         ? "Excellent trading! You correctly predicted all market moves!"
         : `You got ${correct}/3 trades correct. Consider the impact of events on supply and demand!`;
       
-      handleComplete(success, message, correct * 33);
+      handleComplete(success, message, points);
     };
 
     return (
@@ -336,8 +345,6 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Quantitative: Algorithm Optimizer
   const renderQuantGame = () => {
-    const [riskTolerance, setRiskTolerance] = useState(50);
-    const [momentum, setMomentum] = useState(50);
     const optimalRisk = 35;
     const optimalMomentum = 65;
 
@@ -432,8 +439,13 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
     "quantitative": "Algorithm Optimizer",
   }[strategyId] || "Strategy Game";
 
+  const handleClose = () => {
+    resetGame();
+    onClose();
+  };
+
   return (
-    <Dialog open={open} onOpenChange={(open) => !open && onClose()}>
+    <Dialog open={open} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         {showConfetti && (
           <Confetti
@@ -480,7 +492,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
               <Button variant="outline" onClick={resetGame} className="flex-1">
                 Play Again
               </Button>
-              <Button onClick={onClose} className="flex-1">
+              <Button onClick={handleClose} className="flex-1">
                 Close
               </Button>
             </div>
