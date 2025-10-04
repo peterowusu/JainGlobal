@@ -8,14 +8,6 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 
 ## Recent Changes
 
-**Color Palette (Updated: October 4, 2025)**
-- Updated entire app color scheme to custom brand colors
-- #4d748b (hsl(202, 29%, 42%)) - Blue-gray for primary interactive elements
-- #3d474d (hsl(203, 12%, 27%)) - Dark gray for cards and muted backgrounds
-- #373431 (hsl(30, 6%, 20%)) - Darker brown-gray for main background
-- #bfc8ff (hsl(232, 100%, 87%)) - Light lavender for text and accents
-- All CSS variables and components updated for consistent brand identity
-
 **Performance Data (Updated: September 30, 2025)**
 - Assets Under Management: $12.9B (current) - Source: [Fintel](https://fintel.io/i/jain-global-llc-9969)
 - Startup AUM: $5.3 billion

@@ -97,8 +97,8 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         glow: {
-          from: { boxShadow: "0 0 20px rgba(191, 200, 255, 0.3)" },
-          to: { boxShadow: "0 0 30px rgba(191, 200, 255, 0.6)" },
+          from: { boxShadow: "0 0 20px rgba(245, 158, 11, 0.3)" },
+          to: { boxShadow: "0 0 30px rgba(245, 158, 11, 0.6)" },
         },
       },
       animation: {
