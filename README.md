@@ -188,7 +188,7 @@ npm run db:studio    # Open Drizzle Studio
 
 ## 📄 License
 
-This project is proprietary and confidential.
+This project is proprietary and confidential for educational purposes.
 
 ## 🙏 Acknowledgments
 
