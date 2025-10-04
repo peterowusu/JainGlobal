@@ -52,10 +52,11 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - **Quiz**: Strategy knowledge quiz awards 50 points for correct answer
 - **Confetti**: 300-piece colorful celebration on game success
 
-**Target Audience Section**
-- Institutional Investors tab now displays video: `3765088793-preview_1759271170526.mp4`
-- Video auto-plays and loops for engaging presentation
-- Other audience tabs (Accredited Investors, Financial Advisors) maintain static images
+**Target Audience Section (Updated: October 4, 2025)**
+- **Institutional Investors** tab displays video: `3765088793-preview_1759271170526.mp4`
+- **Financial Advisors** tab displays video: `3754833691-preview_1759597722090.mp4`
+- Both videos auto-play and loop for engaging presentation
+- Accredited Investors tab maintains static image
 
 **Enhanced Gamification Features (Updated: October 4, 2025)**
 - **Animated Number Counters**: Performance metrics ($12.9B, 1.87, -3.1%, 2,500+) count up smoothly when scrolled into view with easing animation and proper comma formatting

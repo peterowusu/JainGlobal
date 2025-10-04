@@ -4,12 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import institutionalInvestorVideo from "@assets/3765088793-preview_1759271170526.mp4";
+import financialAdvisorsVideo from "@assets/3754833691-preview_1759597722090.mp4";
 
 const audienceData = {
   accredited: {
     title: "Accredited Investors",
     description: "High-net-worth individuals seeking sophisticated investment solutions with institutional-quality risk management and performance.",
     image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    video: undefined,
     features: [
       "Minimum investment: $1M",
       "Quarterly liquidity terms", 
@@ -35,6 +37,7 @@ const audienceData = {
     title: "Financial Advisors",
     description: "Independent advisors and wealth management professionals seeking alternative investment solutions for their clients.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
+    video: financialAdvisorsVideo,
     features: [
       "Platform access available",
       "Educational resources",
@@ -131,7 +134,7 @@ export function TargetAudienceSection() {
                 </ul>
               </div>
               
-              {activeTab === "institutional" && audienceData[activeTab].video ? (
+              {audienceData[activeTab].video ? (
                 <motion.video
                   src={audienceData[activeTab].video}
                   autoPlay
