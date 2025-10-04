@@ -11,44 +11,50 @@ import { StrategyGame } from "@/components/ui/strategy-games";
 
 const strategies = [
   {
-    id: "fundamental-equities",
-    title: "Fundamental Equities",
-    description: "Deep value analysis and long-term equity positions across global markets",
+    id: "fundamental-equity",
+    title: "Fundamental Equity",
+    aum: "30%",
+    description: "Long-term investments in undervalued companies with strong growth potential",
     icon: BarChart,
     color: "primary",
   },
   {
     id: "equity-arbitrage",
-    title: "Equity Arbitrage", 
-    description: "Market-neutral strategies exploiting price inefficiencies and spreads",
+    title: "Equity Arbitrage",
+    aum: "20%", 
+    description: "Exploiting price discrepancies between related equity securities",
     icon: RefreshCw,
+    color: "secondary",
+  },
+  {
+    id: "rates-macro",
+    title: "Rates & Macro",
+    aum: "15%",
+    description: "Interest rate movements and macroeconomic trends to inform investment decisions",
+    icon: Globe,
+    color: "primary",
+  },
+  {
+    id: "commodities",
+    title: "Commodities",
+    aum: "13%",
+    description: "Physical goods and derivative contracts to capitalize on market fluctuations",
+    icon: Fuel,
     color: "secondary",
   },
   {
     id: "credit",
     title: "Credit",
-    description: "Corporate and sovereign credit opportunities across the capital structure",
+    aum: "12%",
+    description: "Opportunities in corporate and sovereign debt markets",
     icon: Building,
     color: "primary",
   },
   {
-    id: "rates-macro",
-    title: "Rates & Macro",
-    description: "Global macro and interest rate strategies across developed and emerging markets",
-    icon: Globe,
-    color: "secondary",
-  },
-  {
-    id: "commodities",
-    title: "Commodities",
-    description: "Energy, metals, and agricultural commodity trading across physical and derivatives",
-    icon: Fuel,
-    color: "primary",
-  },
-  {
-    id: "quantitative",
-    title: "Quantitative",
-    description: "Systematic and algorithmic strategies using advanced mathematical models",
+    id: "systematic",
+    title: "Systematic",
+    aum: "12%",
+    description: "Quantitative models and algorithms to identify trading opportunities",
     icon: Bot,
     color: "secondary",
   },
@@ -57,7 +63,7 @@ const strategies = [
 const quizQuestion = {
   question: "Which strategy focuses on exploiting price inefficiencies between related securities?",
   options: [
-    { text: "A) Fundamental Equities", correct: false },
+    { text: "A) Fundamental Equity", correct: false },
     { text: "B) Equity Arbitrage", correct: true },
     { text: "C) Credit", correct: false },
     { text: "D) Commodities", correct: false },
@@ -166,9 +172,14 @@ export function StrategiesSection() {
                       <Icon className={`text-${strategy.color} text-2xl group-hover:scale-110 transition-transform duration-300`} />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-foreground mb-3">
-                      {strategy.title}
-                    </h3>
+                    <div className="mb-3">
+                      <h3 className="text-xl font-bold text-foreground">
+                        {strategy.title}
+                      </h3>
+                      <Badge variant="outline" className="mt-2 bg-primary/10 text-primary border-primary/30">
+                        {strategy.aum} AUM
+                      </Badge>
+                    </div>
                     
                     <p className="text-muted-foreground flex-grow mb-4">
                       {strategy.description}

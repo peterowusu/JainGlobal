@@ -30,31 +30,37 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - Popups display full addresses and office details
 - No API key required (uses OpenStreetMap tiles)
 
-**Investment Strategies Section (Updated: October 1, 2025)**
+**Investment Strategies Section (Updated: October 4, 2025)**
 - Video background implemented: `3736384793-preview_1759209683934.mp4`
 - Auto-playing, looping video with dark overlay for text readability
-- Enhances visual appeal of strategy cards and interactive quiz
-- Confetti animation on correct quiz answers (500 pieces, 5-second display)
-- **Interactive Mini-Games**: Each strategy card has a "Play Game" button that opens educational simulations:
-  - **Fundamental Equities**: Stock picking challenge - select undervalued stocks based on P/E ratios and growth
-  - **Equity Arbitrage**: Spread trading game - identify optimal price spreads for arbitrage opportunities
-  - **Credit**: Bond evaluation challenge - choose bonds with best risk-adjusted returns
-  - **Rates & Macro**: Interest rate prediction - predict bond price movements based on Fed policy
-  - **Commodities**: Trading simulator - buy/sell commodities based on market events
-  - **Quantitative**: Algorithm optimizer - tune risk and momentum parameters for optimal returns
+- **6 Core Strategies Ordered by AUM Allocation**:
+  1. **Fundamental Equity (30% AUM)**: Long-term investments in undervalued companies with strong growth potential
+  2. **Equity Arbitrage (20% AUM)**: Exploiting price discrepancies between related equity securities
+  3. **Rates & Macro (15% AUM)**: Interest rate movements and macroeconomic trends
+  4. **Commodities (13% AUM)**: Physical goods and derivative contracts
+  5. **Credit (12% AUM)**: Corporate and sovereign debt opportunities
+  6. **Systematic (12% AUM)**: Quantitative models and algorithms for trading
+- **Interactive Mini-Games with 2025 Market Data**: Each strategy card displays AUM badge and "Play Game" button:
+  - **Fundamental Equity**: Stock picking with 2025 stocks (AI Tech Inc, Regional Bank vs Retail Giant, Legacy Auto)
+  - **Equity Arbitrage**: Spread trading game identifying optimal arbitrage opportunities
+  - **Credit**: Bond evaluation with higher 2025 yields (6.2% AAA, 7.8% BBB, 4.8% Treasury)
+  - **Rates & Macro**: Fed rate cut scenario prediction (2025 inflation environment)
+  - **Commodities**: Trading simulator with current events (Middle East tensions, global uncertainty, harvest forecasts)
+  - **Systematic**: Algorithm optimizer tuning risk tolerance and momentum parameters
+- **Enhanced Game Dialogs**: Larger 4xl windows, gradient backgrounds, animated trophy icons, glowing selection effects
 - **Points System**: Games award 0-100 points based on performance, displayed in header badge with trophy icon
-- Quiz awards 50 points for correct answer
-- Total points accumulate across all games and quiz
+- **Quiz**: Strategy knowledge quiz awards 50 points for correct answer
+- **Confetti**: 300-piece colorful celebration on game success
 
 **Target Audience Section**
 - Institutional Investors tab now displays video: `3765088793-preview_1759271170526.mp4`
 - Video auto-plays and loops for engaging presentation
 - Other audience tabs (Accredited Investors, Financial Advisors) maintain static images
 
-**Enhanced Gamification Features (September 30, 2025)**
+**Enhanced Gamification Features (Updated: October 4, 2025)**
 - **Animated Number Counters**: Performance metrics ($12.9B, 1.87, -3.1%, 2,500+) count up smoothly when scrolled into view with easing animation and proper comma formatting
 - **Confetti Effects**: Celebration animations trigger on quiz success and balanced portfolio achievements
-- **Portfolio Allocation Mini-Game**: Interactive game in Who We Are carousel with 4 strategy sliders, real-time validation, risk analysis, and visual feedback
+- **Portfolio Allocation Mini-Game**: Interactive game in Who We Are carousel with 4 strategy sliders (Equities, Credit, Macro, Systematic), real-time validation, risk analysis, and visual feedback
 - **Achievement Badges**: Gold "Portfolio Master!" badge appears with trophy icon when users create a well-balanced portfolio (25% each strategy)
 - **Custom Particle Colors**: Particle background uses brand colors (#3d474d, #4d748b, #373431, #bfc8ff), variable sizes (1-3px), and glow effects
 - **Interactive Sound Effects**: Hover and click sounds on navigation items for enhanced engagement

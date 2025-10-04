@@ -15,27 +15,27 @@ interface StrategyGameProps {
   onComplete: (points: number) => void;
 }
 
-// Stock data for Fundamental Equities game
+// Stock data for Fundamental Equity game - Updated 2025
 const stocks = [
-  { name: "TechCorp", pe: 15, growth: 12, price: 50, undervalued: true },
-  { name: "RetailCo", pe: 35, growth: 5, price: 80, undervalued: false },
-  { name: "BankCorp", pe: 8, growth: 8, price: 45, undervalued: true },
-  { name: "EnergyInc", pe: 45, growth: 3, price: 120, undervalued: false },
+  { name: "AI Tech Inc", pe: 18, growth: 25, price: 145, undervalued: true },
+  { name: "Retail Giant", pe: 42, growth: 4, price: 230, undervalued: false },
+  { name: "Regional Bank", pe: 9, growth: 11, price: 67, undervalued: true },
+  { name: "Legacy Auto", pe: 38, growth: 2, price: 185, undervalued: false },
 ];
 
-// Bond data for Credit game
+// Bond data for Credit game - Updated for higher rate environment 2025
 const bonds = [
-  { name: "Corp A", yield: 5.5, rating: "AAA", risk: "Low", good: true },
-  { name: "Corp B", yield: 8.2, rating: "BBB", risk: "Medium", good: true },
-  { name: "Corp C", yield: 12, rating: "CCC", risk: "High", good: false },
-  { name: "Sovereign D", yield: 3.5, rating: "AA", risk: "Low", good: true },
+  { name: "Tech Corp A", yield: 6.2, rating: "AAA", risk: "Low", good: true },
+  { name: "Utilities B", yield: 7.8, rating: "BBB", risk: "Medium", good: true },
+  { name: "Retail C", yield: 14.5, rating: "CCC", risk: "High", good: false },
+  { name: "US Treasury", yield: 4.8, rating: "AA+", risk: "Low", good: true },
 ];
 
-// Commodity scenarios
+// Commodity scenarios - Current market events 2025
 const commodities = [
-  { name: "Oil", price: 75, event: "OPEC cuts production", expectedChange: "up" },
-  { name: "Gold", price: 1950, event: "Fed raises rates", expectedChange: "down" },
-  { name: "Wheat", price: 650, event: "Drought in major regions", expectedChange: "up" },
+  { name: "Oil", price: 78, event: "Middle East tensions escalate", expectedChange: "up" },
+  { name: "Gold", price: 2340, event: "Global uncertainty rises", expectedChange: "up" },
+  { name: "Wheat", price: 685, event: "Bumper harvest expected", expectedChange: "down" },
 ];
 
 export function StrategyGame({ strategyId, open, onClose, onComplete }: StrategyGameProps) {
@@ -77,7 +77,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
     }
   };
 
-  // Fundamental Equities: Stock Picking Game
+  // Fundamental Equity: Stock Picking Game
   const renderEquitiesGame = () => {
 
     const handleStockSelect = (stockName: string) => {
@@ -119,7 +119,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
                     : "border-2 border-transparent hover:border-primary/50"
                 }`}
                 onClick={() => handleStockSelect(stock.name)}
-                data-testid={`stock-${stock.name.toLowerCase()}`}
+                data-testid={`stock-${stock.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 <h4 className="font-bold mb-2">{stock.name}</h4>
                 <p className="text-sm text-muted-foreground">P/E Ratio: {stock.pe}</p>
@@ -258,14 +258,14 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   // Rates & Macro: Interest Rate Prediction Game
   const renderMacroGame = () => {
-    const scenario = "The Federal Reserve announces a 0.5% interest rate increase";
-    const correctAnswer = "down";
+    const scenario = "The Federal Reserve signals potential rate cuts amid slowing inflation (2025)";
+    const correctAnswer = "up";
 
     const handleSubmit = () => {
       const success = prediction === correctAnswer;
       const message = success
-        ? "Correct! Higher rates typically decrease bond prices!"
-        : "Not quite. Rising rates make existing bonds less attractive, pushing prices down.";
+        ? "Correct! Rate cuts typically increase bond prices as existing bonds become more attractive!"
+        : "Not quite. Lower rates ahead make existing higher-yielding bonds more valuable, pushing prices up.";
       
       handleComplete(success, message, success ? 100 : 0);
     };
@@ -394,7 +394,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
     );
   };
 
-  // Quantitative: Algorithm Optimizer
+  // Systematic: Algorithm Optimizer
   const renderQuantGame = () => {
     const optimalRisk = 35;
     const optimalMomentum = 65;
@@ -468,7 +468,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
 
   const renderGameContent = () => {
     switch (strategyId) {
-      case "fundamental-equities":
+      case "fundamental-equity":
         return renderEquitiesGame();
       case "equity-arbitrage":
         return renderArbitrageGame();
@@ -478,7 +478,7 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
         return renderMacroGame();
       case "commodities":
         return renderCommoditiesGame();
-      case "quantitative":
+      case "systematic":
         return renderQuantGame();
       default:
         return <p>Game not found</p>;
@@ -486,12 +486,12 @@ export function StrategyGame({ strategyId, open, onClose, onComplete }: Strategy
   };
 
   const gameTitle = {
-    "fundamental-equities": "Stock Picking Challenge",
+    "fundamental-equity": "Stock Picking Challenge",
     "equity-arbitrage": "Spread Trading Game",
     "credit": "Bond Evaluation Challenge",
     "rates-macro": "Macro Prediction Game",
     "commodities": "Commodity Trading Simulator",
-    "quantitative": "Algorithm Optimizer",
+    "systematic": "Systematic Strategy Optimizer",
   }[strategyId] || "Strategy Game";
 
   const handleClose = () => {

@@ -43,7 +43,7 @@ const offices: Office[] = [
     name: "Singapore",
     region: "Southeast Asia",
     address: "Marina Bay Financial Centre, Singapore 018989",
-    focus: "Quantitative Strategies",
+    focus: "Systematic Strategies",
     coordinates: { lat: 1.2789, lng: 103.8508 },
   },
   {

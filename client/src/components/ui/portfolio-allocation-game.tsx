@@ -18,7 +18,7 @@ export function PortfolioAllocationGame() {
     { name: "Equities", color: "bg-blue-500", allocation: 25 },
     { name: "Credit", color: "bg-green-500", allocation: 25 },
     { name: "Macro", color: "bg-purple-500", allocation: 25 },
-    { name: "Quantitative", color: "bg-orange-500", allocation: 25 },
+    { name: "Systematic", color: "bg-orange-500", allocation: 25 },
   ]);
   
   const [showResult, setShowResult] = useState(false);
@@ -66,7 +66,7 @@ export function PortfolioAllocationGame() {
       { name: "Equities", color: "bg-blue-500", allocation: 25 },
       { name: "Credit", color: "bg-green-500", allocation: 25 },
       { name: "Macro", color: "bg-purple-500", allocation: 25 },
-      { name: "Quantitative", color: "bg-orange-500", allocation: 25 },
+      { name: "Systematic", color: "bg-orange-500", allocation: 25 },
     ]);
     setShowResult(false);
   };
