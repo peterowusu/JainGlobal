@@ -4,38 +4,38 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 8%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(43, 96%, 56%);
-  --primary-foreground: hsl(222, 84%, 5%);
-  --secondary: hsl(217, 91%, 60%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(215, 28%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --accent: hsl(217, 91%, 60%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(356, 91%, 54%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 33%, 15%);
-  --input: hsl(215, 28%, 17%);
-  --ring: hsl(43, 96%, 56%);
-  --chart-1: hsl(43, 96%, 56%);
-  --chart-2: hsl(217, 91%, 60%);
-  --chart-3: hsl(159, 100%, 36%);
-  --chart-4: hsl(42, 93%, 56%);
-  --chart-5: hsl(341, 75%, 51%);
-  --sidebar: hsl(222, 84%, 8%);
-  --sidebar-foreground: hsl(210, 40%, 98%);
-  --sidebar-primary: hsl(43, 96%, 56%);
-  --sidebar-primary-foreground: hsl(222, 84%, 5%);
-  --sidebar-accent: hsl(217, 91%, 60%);
-  --sidebar-accent-foreground: hsl(210, 40%, 98%);
-  --sidebar-border: hsl(217, 33%, 15%);
-  --sidebar-ring: hsl(43, 96%, 56%);
+  --background: hsl(30, 6%, 20%);
+  --foreground: hsl(232, 100%, 87%);
+  --card: hsl(203, 12%, 27%);
+  --card-foreground: hsl(232, 100%, 87%);
+  --popover: hsl(30, 6%, 20%);
+  --popover-foreground: hsl(232, 100%, 87%);
+  --primary: hsl(202, 29%, 42%);
+  --primary-foreground: hsl(232, 100%, 87%);
+  --secondary: hsl(232, 100%, 87%);
+  --secondary-foreground: hsl(30, 6%, 20%);
+  --muted: hsl(203, 12%, 27%);
+  --muted-foreground: hsl(232, 100%, 70%);
+  --accent: hsl(232, 100%, 87%);
+  --accent-foreground: hsl(30, 6%, 20%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(232, 100%, 87%);
+  --border: hsl(202, 29%, 35%);
+  --input: hsl(203, 12%, 27%);
+  --ring: hsl(202, 29%, 42%);
+  --chart-1: hsl(202, 29%, 42%);
+  --chart-2: hsl(232, 100%, 87%);
+  --chart-3: hsl(203, 12%, 27%);
+  --chart-4: hsl(30, 6%, 20%);
+  --chart-5: hsl(202, 29%, 55%);
+  --sidebar: hsl(203, 12%, 27%);
+  --sidebar-foreground: hsl(232, 100%, 87%);
+  --sidebar-primary: hsl(202, 29%, 42%);
+  --sidebar-primary-foreground: hsl(232, 100%, 87%);
+  --sidebar-accent: hsl(232, 100%, 87%);
+  --sidebar-accent-foreground: hsl(30, 6%, 20%);
+  --sidebar-border: hsl(202, 29%, 35%);
+  --sidebar-ring: hsl(202, 29%, 42%);
   --font-sans: Inter, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -43,25 +43,25 @@
 }
 
 .dark {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 8%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222, 84%, 5%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(43, 96%, 56%);
-  --primary-foreground: hsl(222, 84%, 5%);
-  --secondary: hsl(217, 91%, 60%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(215, 28%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --accent: hsl(217, 91%, 60%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(356, 91%, 54%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 33%, 15%);
-  --input: hsl(215, 28%, 17%);
-  --ring: hsl(43, 96%, 56%);
+  --background: hsl(30, 6%, 20%);
+  --foreground: hsl(232, 100%, 87%);
+  --card: hsl(203, 12%, 27%);
+  --card-foreground: hsl(232, 100%, 87%);
+  --popover: hsl(30, 6%, 20%);
+  --popover-foreground: hsl(232, 100%, 87%);
+  --primary: hsl(202, 29%, 42%);
+  --primary-foreground: hsl(232, 100%, 87%);
+  --secondary: hsl(232, 100%, 87%);
+  --secondary-foreground: hsl(30, 6%, 20%);
+  --muted: hsl(203, 12%, 27%);
+  --muted-foreground: hsl(232, 100%, 70%);
+  --accent: hsl(232, 100%, 87%);
+  --accent-foreground: hsl(30, 6%, 20%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(232, 100%, 87%);
+  --border: hsl(202, 29%, 35%);
+  --input: hsl(203, 12%, 27%);
+  --ring: hsl(202, 29%, 42%);
 }
 
 @layer base {
@@ -80,7 +80,7 @@
 
 @layer components {
   .hero-video {
-    background: linear-gradient(135deg, hsl(222, 84%, 5%) 0%, hsl(217, 33%, 15%) 50%, hsl(222, 84%, 8%) 100%);
+    background: linear-gradient(135deg, hsl(30, 6%, 20%) 0%, hsl(203, 12%, 27%) 50%, hsl(202, 29%, 42%) 100%);
     position: relative;
     overflow: hidden;
   }
@@ -92,14 +92,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(245,158,11,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(191,200,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     animation: float 6s ease-in-out infinite;
   }
 
   .glass-effect {
-    background: rgba(30, 41, 59, 0.8);
+    background: rgba(61, 71, 77, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(191, 200, 255, 0.2);
   }
 
   .hover-lift {
@@ -115,7 +115,7 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: hsl(43, 96%, 56%);
+    background: hsl(202, 29%, 42%);
     border-radius: 50%;
     opacity: 0.7;
     animation: float 4s ease-in-out infinite;
@@ -128,7 +128,7 @@
 
   .map-pin:hover {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 10px hsl(43, 96%, 56%));
+    filter: drop-shadow(0 0 10px hsl(202, 29%, 42%));
   }
 
   .form-field {
@@ -137,7 +137,7 @@
 
   .form-field:focus {
     transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 20px rgba(191, 200, 255, 0.3);
   }
 
   .strategy-card {
@@ -187,10 +187,10 @@
 
   @keyframes glow {
     from { 
-      box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); 
+      box-shadow: 0 0 20px rgba(191, 200, 255, 0.3); 
     }
     to { 
-      box-shadow: 0 0 30px rgba(245, 158, 11, 0.6); 
+      box-shadow: 0 0 30px rgba(191, 200, 255, 0.6); 
     }
   }
 
