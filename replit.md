@@ -53,10 +53,10 @@ The project uses a full-stack TypeScript architecture with React on the frontend
 - **Confetti**: 300-piece colorful celebration on game success
 
 **Target Audience Section (Updated: October 4, 2025)**
+- **Accredited Investors** tab displays video: `3712412343-preview_1759598514784.mp4`
 - **Institutional Investors** tab displays video: `3765088793-preview_1759271170526.mp4`
 - **Financial Advisors** tab displays video: `3754833691-preview_1759597722090.mp4`
-- Both videos auto-play and loop for engaging presentation
-- Accredited Investors tab maintains static image
+- All three tabs now feature auto-playing, looping videos for engaging presentation
 
 **Enhanced Gamification Features (Updated: October 4, 2025)**
 - **Animated Number Counters**: Performance metrics ($12.9B, 1.87, -3.1%, 2,500+) count up smoothly when scrolled into view with easing animation and proper comma formatting

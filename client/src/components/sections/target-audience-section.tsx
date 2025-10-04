@@ -5,13 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import institutionalInvestorVideo from "@assets/3765088793-preview_1759271170526.mp4";
 import financialAdvisorsVideo from "@assets/3754833691-preview_1759597722090.mp4";
+import accreditedInvestorsVideo from "@assets/3712412343-preview_1759598514784.mp4";
 
 const audienceData = {
   accredited: {
     title: "Accredited Investors",
     description: "High-net-worth individuals seeking sophisticated investment solutions with institutional-quality risk management and performance.",
     image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-    video: undefined,
+    video: accreditedInvestorsVideo,
     features: [
       "Minimum investment: $1M",
       "Quarterly liquidity terms", 
